@@ -5,6 +5,7 @@ const morgan = require('morgan');
 app.use(express.json());
 app.use(morgan('tiny'));
 app.use(cors());
+app.use(express.static('build'));
 
 morgan.token('data', function (req) {
 	if (req.method == 'POST') {
@@ -47,10 +48,6 @@ let persons = [
 	},
 ];
 
-app.get('/', (req, res) => {
-	res.send('<h1>Hello World!</h1>');
-});
-
 app.get('/persons', (req, res) => {
 	res.json(persons);
 });
@@ -65,17 +62,16 @@ const generateId = () => {
 app.post('/persons', (request, response) => {
 	const body = request.body;
 
-	if (!body.content) {
+	if (!body.name) {
 		return response.status(400).json({
 			error: 'content missing',
 		});
 	}
 
 	const person = {
-		content: body.content,
-		important: body.important || false,
-		date: new Date(),
 		id: generateId(),
+		name: body.name,
+		number: body.number,
 	};
 
 	persons = persons.concat(person);
