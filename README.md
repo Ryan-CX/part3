@@ -1,9 +1,5 @@
 # [Full Stack open 2020 part3 backend (Programming a server with NodeJS and Express)](https://fullstackopen.com/en/part3)
 
-## Heroku app URL: https://fullstack-open-2020-part3.herokuapp.com/
-
-## Part3 (Frontend): https://github.com/mayurisakpal/fullstack-open-2020/tree/master/part3
-
 ## Part 3: Exercises 3.1 - 3.22
 
 ### Completed exercises
