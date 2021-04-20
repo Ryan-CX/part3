@@ -19,7 +19,7 @@ app.use(
 	morgan(':method :url :status :res[content-length] :response-time ms :entry')
 );
 
-app.get('/api/persons', (req, res) => {
+app.get('/persons', (req, res) => {
 	Person.find({}).then((item) => {
 		res.json(item);
 	});
@@ -32,7 +32,7 @@ app.get('/info', (req, res) => {
 	});
 });
 
-app.get('/api/persons/:id', (req, res, next) => {
+app.get('/persons/:id', (req, res, next) => {
 	const id = req.params.id;
 
 	Person.findById(id)
@@ -46,14 +46,14 @@ app.get('/api/persons/:id', (req, res, next) => {
 		.catch((error) => next(error));
 });
 
-app.delete('/api/persons/:id', (req, res, next) => {
+app.delete('/persons/:id', (req, res, next) => {
 	const id = req.params.id;
 	Person.findByIdAndDelete(id)
 		.then(() => res.status(204).end())
 		.catch((error) => next(error));
 });
 
-app.post('/api/persons/', (req, res, next) => {
+app.post('/persons/', (req, res, next) => {
 	const data = req.body;
 
 	if (!data.name) {
@@ -74,7 +74,7 @@ app.post('/api/persons/', (req, res, next) => {
 		.catch((error) => next(error));
 });
 
-app.put('/api/persons/:id', (req, res, next) => {
+app.put('/persons/:id', (req, res, next) => {
 	const id = req.params.id;
 
 	const entry = {
