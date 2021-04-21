@@ -13,7 +13,7 @@
 		"lint": "eslint .",
 		"lint:fix": "eslint . --fix"
 	},
-	"author": "Mayuri",
+	"author": "XCG",
 	"license": "ISC",
 	"dependencies": {
 		"cors": "^2.8.5",
