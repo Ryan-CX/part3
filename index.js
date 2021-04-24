@@ -27,7 +27,7 @@ app.get('/api/persons', (req, res) => {
 
 app.get('/info', (req, res) => {
 	Person.countDocuments({}).then((count) => {
-		const messageContent = `<p>Phonebook has info for ${count} people</p><p>${new Date()}</p>`;
+		const messageContent = `<p>Phone book has info for ${count} people</p><p>${new Date()}</p>`;
 		res.send(messageContent);
 	});
 });
